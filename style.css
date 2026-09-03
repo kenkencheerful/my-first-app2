@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -15,19 +15,22 @@ body {
 }
 
 .player-container {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    padding: 40px;
+    background: linear-gradient(135deg, #c0c0c0 0%, #a8a8a8 100%);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), inset -2px -2px 5px rgba(0, 0, 0, 0.3), inset 2px 2px 5px rgba(255, 255, 255, 0.5);
+    padding: 25px;
     width: 100%;
     max-width: 500px;
+    border: 3px outset #e8e8e8;
 }
 
 h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 28px;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
 }
 
 .tabs {
@@ -147,14 +150,21 @@ h1 {
 }
 
 .player {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 15px;
+    background: linear-gradient(135deg, #b0b0b0 0%, #9a9a9a 100%);
+    padding: 20px;
+    border-radius: 4px;
+    border: 3px inset #e8e8e8;
+    box-shadow: inset -1px -1px 3px rgba(0, 0, 0, 0.3), inset 1px 1px 3px rgba(255, 255, 255, 0.3);
 }
 
 .track-info {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    background: #d0d0d0;
+    padding: 15px;
+    border-radius: 3px;
+    border: 2px inset #999;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .controls {
@@ -166,25 +176,24 @@ h1 {
 
 .btn {
     flex: 1;
-    padding: 12px 15px;
-    background: #667eea;
-    color: white;
-    border: none;
-    border-radius: 8px;
+    padding: 10px 12px;
+    background: linear-gradient(180deg, #d0d0d0 0%, #a8a8a8 100%);
+    color: #1a1a1a;
+    border: 2px outset #e8e8e8;
+    border-radius: 3px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
 }
 
 .btn:hover {
-    background: #764ba2;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(180deg, #e0e0e0 0%, #b8b8b8 100%);
 }
 
 .btn:active {
-    transform: translateY(0);
+    border: 2px inset #e8e8e8;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .progress-bar {
@@ -193,81 +202,86 @@ h1 {
 
 progress {
     width: 100%;
-    height: 6px;
-    border: none;
-    border-radius: 3px;
-    background: #ddd;
+    height: 8px;
+    border: 1px inset #888;
+    border-radius: 2px;
+    background: #e0e0e0;
     cursor: pointer;
 }
 
 progress::-webkit-progress-bar {
-    background: #ddd;
-    border-radius: 3px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 progress::-webkit-progress-value {
-    background: #667eea;
-    border-radius: 3px;
+    background: linear-gradient(90deg, #4a90e2 0%, #357abd 100%);
+    border-radius: 2px;
 }
 
 progress::-moz-progress-bar {
-    background: #667eea;
-    border-radius: 3px;
+    background: linear-gradient(90deg, #4a90e2 0%, #357abd 100%);
+    border-radius: 2px;
 }
 
 .time-info {
     text-align: center;
-    color: #666;
-    font-size: 12px;
-    font-weight: 500;
+    color: #1a1a1a;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
 }
 
 .speed-controls {
-    margin-top: 20px;
+    margin-top: 15px;
     text-align: center;
 }
 
 .speed-label {
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 10px;
-    font-weight: 600;
+    font-size: 11px;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
 }
 
 .speed-buttons {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     justify-content: center;
 }
 
 .speed-btn {
-    padding: 8px 12px;
-    background: #e0e0e0;
-    color: #333;
-    border: 2px solid transparent;
-    border-radius: 6px;
+    padding: 6px 10px;
+    background: linear-gradient(180deg, #d0d0d0 0%, #a8a8a8 100%);
+    color: #1a1a1a;
+    border: 2px outset #e8e8e8;
+    border-radius: 3px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
-    transition: all 0.2s ease;
+    transition: all 0.1s ease;
 }
 
 .speed-btn:hover {
-    background: #d0d0d0;
+    background: linear-gradient(180deg, #e0e0e0 0%, #b8b8b8 100%);
 }
 
 .speed-btn.active {
-    background: #667eea;
+    background: linear-gradient(180deg, #4a90e2 0%, #357abd 100%);
     color: white;
-    border-color: #764ba2;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    border: 2px inset #2a5ab8;
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #fileName {
-    color: #555;
-    font-size: 14px;
+    color: #1a1a1a;
+    font-size: 13px;
     word-break: break-word;
     flex: 1;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
 }
 
 .favorite-btn {
