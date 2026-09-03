@@ -10,22 +10,55 @@
     <div class="player-container">
         <h1>🎵 マイ音楽プレーヤー</h1>
         
-        <div class="file-upload">
-            <input type="file" id="audioFile" accept="audio/*" />
-            <label for="audioFile">音声ファイルを選択</label>
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="upload">アップロード</button>
+            <button class="tab-btn" data-tab="favorites">お気に入り</button>
+            <button class="tab-btn" data-tab="recent">最近使用したファイル</button>
+        </div>
+        
+        <div id="upload-tab" class="tab-content active">
+            <div class="file-upload">
+                <input type="file" id="audioFile" accept="audio/*" />
+                <label for="audioFile">音声ファイルを選択</label>
+            </div>
+        </div>
+        
+        <div id="favorites-tab" class="tab-content">
+            <div id="favoritesList" class="file-list">
+                <p class="empty-message">お気に入りはまだ登録されていません</p>
+            </div>
+        </div>
+        
+        <div id="recent-tab" class="tab-content">
+            <div id="recentList" class="file-list">
+                <p class="empty-message">最近使用したファイルはありません</p>
+            </div>
         </div>
         
         <div class="player">
             <audio id="audioPlayer"></audio>
             
             <div class="track-info">
-                <p id="fileName">ファイルが選択されていません</p>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <p id="fileName">ファイルが選択されていません</p>
+                    <button id="favoriteBtn" class="favorite-btn">♡</button>
+                </div>
             </div>
             
             <div class="controls">
                 <button id="playBtn" class="btn">▶ 再生</button>
                 <button id="pauseBtn" class="btn">⏸ 一時停止</button>
                 <button id="stopBtn" class="btn">⏹ 停止</button>
+            </div>
+            
+            <div class="speed-controls">
+                <p class="speed-label">再生速度</p>
+                <div class="speed-buttons">
+                    <button class="speed-btn active" data-speed="1">1x</button>
+                    <button class="speed-btn" data-speed="1.5">1.5x</button>
+                    <button class="speed-btn" data-speed="1.75">1.75x</button>
+                    <button class="speed-btn" data-speed="2">2x</button>
+                </div>
             </div>
             
             <div class="progress-bar">

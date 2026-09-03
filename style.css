@@ -30,6 +30,98 @@ h1 {
     font-size: 28px;
 }
 
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-btn {
+    padding: 12px 16px;
+    background: transparent;
+    color: #666;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: #667eea;
+}
+
+.tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.tab-content {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.file-list {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.file-item {
+    background: white;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid #667eea;
+}
+
+.file-item:hover {
+    background: #f0f0f0;
+    transform: translateX(2px);
+}
+
+.file-item-name {
+    flex: 1;
+    font-size: 13px;
+    color: #333;
+    word-break: break-word;
+}
+
+.file-item-remove {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background 0.2s ease;
+}
+
+.file-item-remove:hover {
+    background: #ee5a5a;
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 10px;
+}
+
 .file-upload {
     margin-bottom: 30px;
 }
@@ -63,12 +155,6 @@ h1 {
 .track-info {
     text-align: center;
     margin-bottom: 25px;
-}
-
-#fileName {
-    color: #555;
-    font-size: 14px;
-    word-break: break-word;
 }
 
 .controls {
@@ -134,4 +220,65 @@ progress::-moz-progress-bar {
     color: #666;
     font-size: 12px;
     font-weight: 500;
+}
+
+.speed-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.speed-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.speed-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.speed-btn {
+    padding: 8px 12px;
+    background: #e0e0e0;
+    color: #333;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.speed-btn:hover {
+    background: #d0d0d0;
+}
+
+.speed-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #764ba2;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+#fileName {
+    color: #555;
+    font-size: 14px;
+    word-break: break-word;
+    flex: 1;
+}
+
+.favorite-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.favorite-btn.active {
+    color: #ff6b6b;
+    transform: scale(1.2);
 }
