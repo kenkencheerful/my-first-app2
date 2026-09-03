@@ -2,9 +2,11 @@ const audioFile = document.getElementById('audioFile');
 const audioPlayer = document.getElementById('audioPlayer');
 const fileName = document.getElementById('fileName');
 const favoriteBtn = document.getElementById('favoriteBtn');
+const rewindBtn = document.getElementById('rewindBtn');
 const playBtn = document.getElementById('playBtn');
 const pauseBtn = document.getElementById('pauseBtn');
 const stopBtn = document.getElementById('stopBtn');
+const forwardBtn = document.getElementById('forwardBtn');
 const progressBar = document.getElementById('progressBar');
 const currentTimeEl = document.getElementById('currentTime');
 const durationEl = document.getElementById('duration');
@@ -206,6 +208,16 @@ pauseBtn.addEventListener('click', () => {
 stopBtn.addEventListener('click', () => {
     audioPlayer.pause();
     audioPlayer.currentTime = 0;
+});
+
+// 10秒戻すボタン
+rewindBtn.addEventListener('click', () => {
+    audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - 10);
+});
+
+// 10秒進むボタン
+forwardBtn.addEventListener('click', () => {
+    audioPlayer.currentTime = Math.min(audioPlayer.duration, audioPlayer.currentTime + 10);
 });
 
 // 再生速度ボタン
