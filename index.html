@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>マイ音楽プレーヤー</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    ようこそ私のページへ！
+    <div class="player-container">
+        <h1>🎵 マイ音楽プレーヤー</h1>
+        
+        <div class="file-upload">
+            <input type="file" id="audioFile" accept="audio/*" />
+            <label for="audioFile">音声ファイルを選択</label>
+        </div>
+        
+        <div class="player">
+            <audio id="audioPlayer"></audio>
+            
+            <div class="track-info">
+                <p id="fileName">ファイルが選択されていません</p>
+            </div>
+            
+            <div class="controls">
+                <button id="playBtn" class="btn">▶ 再生</button>
+                <button id="pauseBtn" class="btn">⏸ 一時停止</button>
+                <button id="stopBtn" class="btn">⏹ 停止</button>
+            </div>
+            
+            <div class="progress-bar">
+                <progress id="progressBar" value="0" max="100"></progress>
+            </div>
+            
+            <div class="time-info">
+                <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
