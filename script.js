@@ -7,6 +7,8 @@ const playBtn = document.getElementById('playBtn');
 const pauseBtn = document.getElementById('pauseBtn');
 const stopBtn = document.getElementById('stopBtn');
 const forwardBtn = document.getElementById('forwardBtn');
+const autoplayBtn = document.getElementById('autoplayBtn');
+const playlistStatus = document.getElementById('playlistStatus');
 const progressBar = document.getElementById('progressBar');
 const currentTimeEl = document.getElementById('currentTime');
 const durationEl = document.getElementById('duration');
@@ -25,6 +27,11 @@ const storage = {
 };
 
 let currentFileData = null;
+
+// 連続再生機能の状態管理
+let autoplayMode = false;
+let playlistQueue = [];
+let currentPlaylistIndex = 0;
 
 // タブ切り替え
 tabBtns.forEach((btn) => {
@@ -220,6 +227,37 @@ forwardBtn.addEventListener('click', () => {
     audioPlayer.currentTime = Math.min(audioPlayer.duration, audioPlayer.currentTime + 10);
 });
 
+// 連続再生ボタン
+autoplayBtn.addEventListener('click', () => {
+    autoplayMode = !autoplayMode;
+    updateAutoplayStatus();
+    
+    if (autoplayMode) {
+        playlistQueue = storage.getFavorites();
+        currentPlaylistIndex = 0;
+        
+        if (playlistQueue.length > 0) {
+            loadFileData(playlistQueue[0]);
+            audioPlayer.play();
+        } else {
+            alert('お気に入りにファイルがありません');
+            autoplayMode = false;
+            updateAutoplayStatus();
+        }
+    }
+});
+
+// 連続再生状態を更新
+function updateAutoplayStatus() {
+    if (autoplayMode) {
+        autoplayBtn.classList.add('active');
+        playlistStatus.textContent = `連続再生: ON (${currentPlaylistIndex + 1}/${playlistQueue.length})`;
+    } else {
+        autoplayBtn.classList.remove('active');
+        playlistStatus.textContent = '連続再生: OFF';
+    }
+}
+
 // 再生速度ボタン
 speedBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
@@ -241,6 +279,22 @@ audioPlayer.addEventListener('timeupdate', () => {
 // 曲の総時間を表示
 audioPlayer.addEventListener('loadedmetadata', () => {
     durationEl.textContent = formatTime(audioPlayer.duration);
+});
+
+// 曲が終了したら次の曲を再生
+audioPlayer.addEventListener('ended', () => {
+    if (autoplayMode && playlistQueue.length > 0) {
+        currentPlaylistIndex++;
+        
+        if (currentPlaylistIndex < playlistQueue.length) {
+            loadFileData(playlistQueue[currentPlaylistIndex]);
+            updateAutoplayStatus();
+            audioPlayer.play();
+        } else {
+            autoplayMode = false;
+            updateAutoplayStatus();
+        }
+    }
 });
 
 // プログレスバーをクリックして時間をシーク
