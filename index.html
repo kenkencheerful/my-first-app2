@@ -24,6 +24,13 @@
         </div>
         
         <div id="favorites-tab" class="tab-content">
+            <div class="folder-selection">
+                <button id="selectFolderBtn" class="btn" style="width: 100%; margin-bottom: 8px;">📁 フォルダを選択</button>
+            </div>
+            <div id="folderInfo" class="folder-info" style="display: none; margin-bottom: 12px; padding: 10px; background: #d0d0d0; border-radius: 6px; text-align: center; font-size: 12px; color: #1a1a1a;">
+                <p id="folderName">フォルダ情報</p>
+                <button id="addFolderFavoriteBtn" class="btn" style="width: 100%; margin-top: 8px; padding: 6px 12px; font-size: 11px;">⭐ お気に入りに登録</button>
+            </div>
             <div id="favoritesList" class="file-list">
                 <p class="empty-message">お気に入りはまだ登録されていません</p>
             </div>
@@ -54,7 +61,7 @@
             <div class="controls controls-secondary">
                 <button id="rewindBtn" class="btn btn-secondary">⏪ 10秒戻す</button>
                 <button id="forwardBtn" class="btn btn-secondary">10秒進む ⏩</button>
-                <button id="autoplayBtn" class="btn btn-secondary">🔁 連続再生</button>
+                <button id="nextTrackBtn" class="btn btn-secondary">⏭ 次の曲へ</button>
             </div>
             
             <div class="playlist-info">
