@@ -106,6 +106,12 @@ function addToRecent(fileData) {
     storage.saveRecent(recent);
 }
 
+function promptFileSelection(fileData) {
+    const message = `📁 "${fileData.name}" を再度選択してください。\n\nマイクロSDカードから同じファイルを選択してください。`;
+    alert(message);
+    elements.file.input.click();
+}
+
 // ==========================================
 // お気に入り管理
 // ==========================================
@@ -162,7 +168,7 @@ function renderFavorites() {
     listEl.querySelectorAll('.file-item').forEach((item, index) => {
         item.addEventListener('click', (e) => {
             if (!e.target.classList.contains('file-item-remove')) {
-                loadFileData(favorites[index]);
+                promptFileSelection(favorites[index]);
             }
         });
     });
@@ -202,7 +208,7 @@ function renderRecent() {
     listEl.querySelectorAll('.file-item').forEach((item, index) => {
         item.addEventListener('click', (e) => {
             if (!e.target.classList.contains('file-item-remove')) {
-                loadFileData(recent[index]);
+                promptFileSelection(recent[index]);
             }
         });
     });
